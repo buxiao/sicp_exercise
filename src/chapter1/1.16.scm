@@ -1,0 +1,7 @@
+(define (exp-iter a b n)
+	(define (square a) (* a a))
+	(define (half a) (/ a 2))
+	(define (even? a) (= (remainder a 2) 0))
+	(cond ((= n 0) a)
+	      ((even? n) (exp-iter a (square b)(half n)))
+	      (else (exp-iter (* a b) b (- n 1)))))

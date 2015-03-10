@@ -1,0 +1,7 @@
+(define (mul-iter a b)
+	(define (double a) (+ a a))
+	(define (half a) (/ a 2))
+	(define (even? a) (= (remainder a 2) 0))
+	(cond ((= b 0) 0)
+	      ((even? b) (fast-mul (double a) (half b)))
+	      (else (+ a (fast-mul a (- b 1))))))
